@@ -17,7 +17,7 @@ public class Hand {
         this.handList.add(card);
     }
 
-    public int handValueOf() {
+    public int value() {
         int handValue = this.handList
                 .stream()
                 .mapToInt(Card::rankValue)
@@ -36,10 +36,6 @@ public class Hand {
         return handValue;
     }
 
-    public boolean isPlayerBusted() {
-        return handValueOf() > 21;
-    }
-
     public void displayHand() {
         System.out.println(handList.stream()
                                .map(Card::display)
@@ -49,5 +45,23 @@ public class Hand {
 
     public void printFirstCard() {
         System.out.println(this.handList.get(0).display()); // first card is Face Up
+    }
+
+    public boolean isBust() {
+        return value() > 21;
+    }
+
+    public int compareTo(Hand playerHand) {
+        return Integer.compare(this.value(), playerHand.value());
+    }
+
+    void displayHandFormatted(String person) {
+        System.out.println(person + " has: ");
+        this.displayHand();
+        System.out.println(" (" + this.value() + ")");
+    }
+
+    public boolean shouldDealerHit(Game game) {
+        return value() <= Game.DEALER_STOPPING_VALUE;
     }
 }

@@ -10,6 +10,7 @@ import static org.fusesource.jansi.Ansi.ansi;
 public class Game {
 
     public static final int NUM_OF_INITIAL_CARDS_PER_PLAYER = 2;
+    public static final int DEALER_STOPPING_VALUE = 16;
     private final Deck deck;
 
     private final Hand dealerHand = new Hand();
@@ -73,7 +74,7 @@ public class Game {
             }
             if (playerChoice.startsWith("h")) {
                 playerHand.dealOneRound(deck);
-                playerBusted = playerHand.isPlayerBusted();
+                playerBusted = playerHand.isBust();
             } else {
                 System.out.println("You need to [H]it or [S]tand");
             }
@@ -83,7 +84,7 @@ public class Game {
     }
 
     private void dealerPhase() {
-        while (dealerHand.handValueOf() <= 16) {
+        while (dealerHand.shouldDealerHit(this)) {
             dealerHand.dealOneRound(deck);
         }
     }
@@ -97,11 +98,11 @@ public class Game {
     private void displayGameResults(boolean playerBusted) {
         if (playerBusted) {
             System.out.println("You Busted, so you lose.  💸");
-        } else if (dealerHand.handValueOf() > 21) {
+        } else if (dealerHand.isBust()) {
             System.out.println("Dealer went BUST, Player wins! Yay for you!! 💵");
-        } else if (dealerHand.handValueOf() < playerHand.handValueOf()) {
+        } else if (playerHand.compareTo(playerHand) == 1) {
             System.out.println("You beat the Dealer! 💵");
-        } else if (dealerHand.handValueOf() == playerHand.handValueOf()) {
+        } else if (dealerHand.compareTo(playerHand) == 0) {
             System.out.println("Push: You tie with the Dealer. 💸");
         } else {
             System.out.println("You lost to the Dealer. 💸");
@@ -117,7 +118,7 @@ public class Game {
         displayBackOfCard();
 
         System.out.println();
-        displayHandFormatted("Player");
+        dealerHand.displayHandFormatted("Player");
     }
 
     private void displayBackOfCard() {
@@ -136,14 +137,8 @@ public class Game {
 
     private void displayFinalGameState() {
         System.out.print(ansi().eraseScreen().cursor(1, 1));
-        displayHandFormatted("Dealer");
+        dealerHand.displayHandFormatted("Dealer");
         System.out.println();
-        displayHandFormatted("Player");
-    }
-
-    private void displayHandFormatted(String person) {
-        System.out.println(person + " has: ");
-        playerHand.displayHand();
-        System.out.println(" (" + playerHand.handValueOf() + ")");
+        dealerHand.displayHandFormatted("Player");
     }
 }

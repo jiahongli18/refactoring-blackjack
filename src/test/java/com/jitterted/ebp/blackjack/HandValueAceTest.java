@@ -2,8 +2,6 @@ package com.jitterted.ebp.blackjack;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.*;
 
 public class HandValueAceTest {
@@ -17,7 +15,7 @@ public class HandValueAceTest {
         hand.addOneCard(new Card(dummySuit, "A"));
         hand.addOneCard(new Card(dummySuit, "5"));
 
-        assertThat(hand.handValueOf())
+        assertThat(hand.value())
                 .isEqualTo(11 + 5);
     }
 
@@ -29,7 +27,7 @@ public class HandValueAceTest {
         hand.addOneCard(new Card(dummySuit, "8"));
         hand.addOneCard(new Card(dummySuit, "3"));
 
-        assertThat(hand.handValueOf())
+        assertThat(hand.value())
                 .isEqualTo(1 + 8 + 3);
     }
 }
