@@ -1,4 +1,5 @@
-/Users/jiahongli/mycmt1-blackjack-nov1/src/main/java/com/jitterted/ebp/blackjack/Deck.java
-/Users/jiahongli/mycmt1-blackjack-nov1/src/main/java/com/jitterted/ebp/blackjack/Game.java
-/Users/jiahongli/mycmt1-blackjack-nov1/src/main/java/com/jitterted/ebp/blackjack/Suit.java
-/Users/jiahongli/mycmt1-blackjack-nov1/src/main/java/com/jitterted/ebp/blackjack/Card.java
+/Users/jiahongli/refactoring-blackjack/src/main/java/com/jitterted/ebp/blackjack/Hand.java
+/Users/jiahongli/refactoring-blackjack/src/main/java/com/jitterted/ebp/blackjack/Game.java
+/Users/jiahongli/refactoring-blackjack/src/main/java/com/jitterted/ebp/blackjack/Deck.java
+/Users/jiahongli/refactoring-blackjack/src/main/java/com/jitterted/ebp/blackjack/Suit.java
+/Users/jiahongli/refactoring-blackjack/src/main/java/com/jitterted/ebp/blackjack/Card.java

@@ -28,12 +28,12 @@ public class Card {
         lines[0] = "┌─────────┐";
         lines[1] = String.format("│%s%s       │", rank, rank.equals("10") ? "" : " ");
         lines[2] = "│         │";
-        lines[3] = String.format("│    %s    │", suit.getChar());
+        lines[3] = String.format("│    %s    │", suit.getSymbol());
         lines[4] = "│         │";
         lines[5] = String.format("│       %s%s│", rank.equals("10") ? "" : " ", rank);
         lines[6] = "└─────────┘";
 
-        Ansi.Color cardColor = "♥♦".contains(suit.getChar()) ? Ansi.Color.RED : Ansi.Color.BLACK;
+        Ansi.Color cardColor = suit.getCardColor();
         return ansi()
                 .fg(cardColor).toString()
                 + String.join(ansi().cursorDown(1)
@@ -44,7 +44,7 @@ public class Card {
     @Override
     public String toString() {
         return "Card {" +
-                "suit=" + suit.getChar() +
+                "suit=" + suit.getSymbol() +
                 ", rank=" + rank +
                 '}';
     }
@@ -62,7 +62,7 @@ public class Card {
 
     @Override
     public int hashCode() {
-        int result = suit.getChar().hashCode();
+        int result = suit.getSymbol().hashCode();
         result = 31 * result + rank.hashCode();
         return result;
     }
