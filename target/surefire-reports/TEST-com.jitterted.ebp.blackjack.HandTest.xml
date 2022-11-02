@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.jitterted.ebp.blackjack.CardTest" time="0.041" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.jitterted.ebp.blackjack.HandTest" time="0" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -53,9 +53,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="62.0"/>
   </properties>
-  <testcase name="cardDisplaysSuitAsSymbol" classname="com.jitterted.ebp.blackjack.CardTest" time="0.028"/>
-  <testcase name="withAceHasNumericValueOf1" classname="com.jitterted.ebp.blackjack.CardTest" time="0.001"/>
-  <testcase name="withNumberCardHasNumericValueOfTheNumber" classname="com.jitterted.ebp.blackjack.CardTest" time="0.007"/>
-  <testcase name="withValueOfQueenHasNumericValueOf10" classname="com.jitterted.ebp.blackjack.CardTest" time="0.001"/>
-  <testcase name="suitOfHeartsOrDiamondsIsDisplayedInRed" classname="com.jitterted.ebp.blackjack.CardTest" time="0"/>
+  <testcase name="aceShouldCountAsOne" classname="com.jitterted.ebp.blackjack.HandTest" time="0"/>
+  <testcase name="handShouldBustWithValueTwentyTwo" classname="com.jitterted.ebp.blackjack.HandTest" time="0"/>
 </testsuite>

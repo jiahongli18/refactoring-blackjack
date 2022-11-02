@@ -118,7 +118,7 @@ public class Game {
         displayBackOfCard();
 
         System.out.println();
-        dealerHand.displayHandFormatted("Player");
+        playerHand.displayHandFormatted("Player");
     }
 
     private void displayBackOfCard() {
@@ -139,6 +139,6 @@ public class Game {
         System.out.print(ansi().eraseScreen().cursor(1, 1));
         dealerHand.displayHandFormatted("Dealer");
         System.out.println();
-        dealerHand.displayHandFormatted("Player");
+        playerHand.displayHandFormatted("Player");
     }
 }
